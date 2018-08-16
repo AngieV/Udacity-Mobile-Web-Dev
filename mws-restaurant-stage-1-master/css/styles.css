@@ -1,21 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-@media screen and (max-width: 450px){
-	/* use this query for handheld devices */
-
-}
-
-@media screen and (min-width: 451px) and (max-width: 750px){
-	/* use this query for tablets */
-
-}
-
-@media screen and (min-width: 1100px){
-	/* use this query for desktop/laptops */
-
-}
-
  /* TODO
   *  center li containers responsively
 	*  set a global of min-width: 395px ???;
