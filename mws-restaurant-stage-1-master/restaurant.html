@@ -13,28 +13,37 @@
   <style>
     @media screen and (max-width: 450px){
       /* use this query for handheld devices */
-      header { width: 100%; order: 1; }
+      /* header { width: 100%; order: 1; }
       nav { width: 100%; order: 3; }
       #map { width: 100%; order: 2; }
-      #restaurant-reviews { width: 100%; order: 4; }
+      #restaurant-reviews { width: 100%; order: 4; } */
     }
 
-    @media screen and (min-width: 451px) and (max-width: 800px){
+    @media screen and (min-width: 451px) {
       /* use this query for tablets */
-      header { width: 100%; order: 1; }
-      nav { width: 100%; order: 3; }
+      #maincontent {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+
+      /* header { width: 100%; order: 1; }
       #map { width: 100%; order: 2; }
-      #restaurant-reviews { width: 100%; order: 4; }
+      #restaurant-reviews { width: 100%; } */
     }
 
-    @media screen and (min-width: 801px){
+    @media screen and (min-width: 800px){
       /* use this query for desktop/laptops */
-      header { width: 100%; order: 1; }
-      nav { width: 50%; order: 2; }
-      #map { width: 50%; height: responsive; order: 3; }
-      #restaurant-container { width: 50%; order: 4; }
-      #reviews-container { width: 100%; order: 5; }
+
+      nav { width: 100%; order: -1; }
+      #map { width: 50%; order: 2; }
+      #restaurant-reviews { width: 50%; }
+
+      #map {
+        width: 50%;
+      }
     }
+
   </style>
 
 </head>
@@ -50,7 +59,7 @@
   <main id="maincontent">
     <!-- Beginning nav/breadcrumb-->
     <nav id="breadcrumb">
-      <p><a href="/">Home</a></p>
+      <a href="/">Home</a>
     </nav>
     <!-- End nav/breadcrumb <a href="/">Restaurant Reviews</a> reason for link??-->
 
