@@ -2,11 +2,9 @@
 /* CSS Document */
 
  /* TODO
-  *  center li containers responsively
-	*  set a global of min-width: 395px ???;
-	*  convert the images to responsive
+  *  set a global of min-width: 395px ???;
 	*  add serviceworker & caching
-	*  <td> last child (hours) should break onto line by itself>
+	*  <td> last child (hours) should break onto line by itself>??
   */
 
 body {
@@ -198,7 +196,8 @@ nav {
 #restaurant-reviews{
  width: 100%;
 }
-#restaurant-container{
+
+#restaurant-container {
 	width: 90%;
 	align-content: center;
 	padding: 20px;

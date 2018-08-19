@@ -17,6 +17,7 @@
       nav { width: 100%; order: 3; }
       #map { width: 100%; order: 2; }
       #restaurant-reviews { width: 100%; order: 4; } */
+
     }
 
     @media screen and (min-width: 451px) {
@@ -25,11 +26,10 @@
         display: flex;
         flex-wrap: wrap;
       }
-
-
-      /* header { width: 100%; order: 1; }
-      #map { width: 100%; order: 2; }
-      #restaurant-reviews { width: 100%; } */
+      img {
+        transition: width 0.5s;
+        width: 270px;
+      }
     }
 
     @media screen and (min-width: 800px){
@@ -41,6 +41,7 @@
 
       #map {
         width: 50%;
+        height: 100vh;
       }
     }
 
