@@ -4,10 +4,10 @@ var allCaches = [
   staticCacheName,
   contentImgsCache
 ];
-var urlsToCache = ['/skeleton',
-                   '/js/main.js',
+var urlsToCache = ['/js/main.js',
                    '/js/restaurant_info.js',
                    '/css/styles.css',
+                   '/img/'
                   ]
 
 self.addEventListener('install', function(event) {
@@ -24,16 +24,13 @@ self.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
 
   if (requestUrl.origin === location.origin) {
-    if (requestUrl.pathname === '/') {
-      event.respondWith(caches.match('/skeleton'));
-      return;
-    }
     if (requestUrl.pathname.startsWith('/img/')) {
       event.respondWith(servePhoto(event.request));
       return;
     }
   }
-  event.respondWith(
+
+    event.respondWith(
     caches.match(event.request).then(function(response) {
         // Cache hit - return response
         if (response) {
@@ -58,8 +55,7 @@ self.addEventListener('fetch', function(event) {
             // to clone it so we have two streams.
             var responseToCache = response.clone();
 
-            caches.open(staticCacheName)
-              .then(function(cache) {
+            caches.open(staticCacheName).then(function(cache) {
                 cache.put(event.request, responseToCache);
               });
 
@@ -68,15 +64,21 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
+});
 
-function servePhoto(request) {
+function servePhoto(event.request) {
+  //trim pixel width from url
   var storageUrl = request.url.replace(/-\d+px\.jpg$/, '');
 
   return caches.open(contentImgsCache).then(function(cache) {
-    return cache.match(storageUrl).then(function(response) {
-      if (response) return response;
+    console.log('Opened photo cache');
+    return caches.match(storageUrl).then(function(response) {
+      if (response) {
+        return response;
+      }
+      var imgRequest = event.request.clone();
 
-      return fetch(request).then(function(networkResponse) {
+      return fetch(imgRequest).then(function(networkResponse) {
         cache.put(storageUrl, networkResponse.clone());
         return networkResponse;
       });
